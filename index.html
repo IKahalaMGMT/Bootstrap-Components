@@ -21,6 +21,7 @@
       /* Start custom styles by Isaiah */
       .row.tabs { padding: 64px 16px; border: 1px solid #495057; border-radius: 6px; margin: 64px 0;}
       h2  { margin-bottom: 32px;}
+      .skip-to-content { position: absolute; top: 0; left: 0; z-index: 9999; }
       /* End sustom styles */
 
       .bd-placeholder-img {
@@ -106,6 +107,7 @@
     <link href="carousel.css" rel="stylesheet">
   </head>
   <body>
+    <a class="visually-hidden-focusable btn btn-bd-primary skip-to-content" href="#content">Skip to main content</a>
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -196,7 +198,7 @@
   </nav>
 </header>
 
-<main>
+<main id="content">
 
   <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
     <div class="carousel-indicators">

@@ -1,29 +1,40 @@
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head><script src="./assets/js/color-modes.js"></script>
-    
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Kahala MGMT">
     <meta name="generator" content="Hugo 0.122.0">
     <title>Bootstrap Component Library</title>
-
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
-
-    
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-
-<link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <style>
       /* Start custom styles by Isaiah */
       .skip-to-content { position: absolute; top: 0; left: 0; z-index: 9999; }
+      .nav-link.active { text-decoration: underline; }
       h2  { margin-bottom: 32px;}
       .row.tabs { padding: 64px 16px; border: 1px solid #495057; border-radius: 6px; margin: 64px 0;}
       .menu-card img { width: 100%; }
+      .dwmodal-box h2, .dwmodal-box p { color: #CC0C7A; font-family: "Neutraface Text Bold", sans-serif; font-size: 1.1rem; font-weight: bold; letter-spacing: 0px; line-height: 1.5; margin: 0.5rem 1rem 0; padding: 0; }
+      .dwmodal-wrapper .btn { display: inline-block; background-color: #29B7CB; border-radius: 0.5rem; font-size: 16px; padding: 10px; margin: 1rem 1rem 0rem; text-decoration: none; text-transform: uppercase; }
+      .dwmodal-wrapper .btn:hover { background-color: #CC0C7A;  }
+      .dwmodal-wrapper .btn:hover { background-color: #CC0C7A; }
+      .dwmodal-wrapper .btn:focus { outline: 2px solid #000; }
+      .dwmodal-close-button:focus { border: 2px solid #fff; outline: 2px solid #000; }
+      .carousel .carousel-control-next-icon, .carousel .carousel-control-prev-icon { background-size: 75% 75%; }
+      .carousel .carousel-control-next:focus .carousel-control-next-icon, .carousel .carousel-control-prev:focus .carousel-control-prev-icon { outline: 2px solid #fff; }
+      [data-bs-theme=dark] .carousel .carousel-control-next-icon, [data-bs-theme=dark] .carousel .carousel-control-prev-icon, [data-bs-theme=dark].carousel .carousel-control-next-icon, [data-bs-theme=dark].carousel .carousel-control-prev-icon { background-color: #000; border-radius: 999px; padding: 20px; }
+      .btn.btn-secondary { background-color: #4891FE; border-color: #4891FE;}
+      .tabs .nav-link:focus-visible { outline: 2px solid #fff; box-shadow: 0 0 0 4px rgba(0, 0, 0, .5); }
+      .accordion-button:focus { outline: 2px solid #fff; box-shadow: 0 0 0 4px rgba(0, 0, 0, .5); }
+
+      @media(max-height: 515px) { 
+        .dwmodal.dwmodal-show-modal { display: none; }
+      }
       /* End sustom styles */
 
       .bd-placeholder-img {
@@ -103,11 +114,8 @@
         display: block !important;
       }
     </style>
-
-    
-    <!-- Custom styles for this template -->
     <link href="carousel.css" rel="stylesheet">
-    <script async="" src="assets\js\popup-website-js.js"></script>
+    <script async="" src="https://www.planetsmoothie.com/assets/js/popups/popup-website-js.js?ver=1725433225017"></script>
   </head>
   <body>
     <a class="visually-hidden-focusable btn btn-bd-primary skip-to-content" href="#content">Skip to main content</a>
@@ -167,7 +175,7 @@
 
 <main id="content">
 
-  <div class="embed-responsive embed-responsive-16by9">
+  <div aria-hidden="true" class="embed-responsive embed-responsive-16by9">
     <video class="object-fit-cover" width="1920" height="720" poster="https://www.planetsmoothie.com/assets/images/banners/homeHero.jpg" layout="responsive" role="button" muted autoplay loop playsinline>
       <source src="https://www.planetsmoothie.com/assets/video/plsvideo.mp4" type="video/mp4">
       Your browser does not support the video tag.
@@ -178,24 +186,25 @@
 
   <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
     <div class="carousel-indicators">
+      <button id="btnPause" type="button" class="btn btn-secondary play"></button>
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <a href="#">
-          <img alt="" loading="lazy" src="https://www.planetsmoothie.com/assets/images/slider/36.37.1067-PS-ALSF-September-Digital-Assets_web-slider.jpg">
+        <a aria-label="learn more, alex's lemonade stand September donation drive" href="#">
+          <img alt="Buy a lunar lemonade and $1 will be donated to alex's lemondate stand foundation all through september. Alex's lemonade stand found for childhood cancer. Fighting Childhood cancer, one cup at a time. learn more" loading="lazy" src="https://www.planetsmoothie.com/assets/images/slider/36.37.1067-PS-ALSF-September-Digital-Assets_web-slider.jpg">
         </a>
       </div>
       <div class="carousel-item">
-        <a href="#">
-          <img loading="lazy" src="https://www.planetsmoothie.com/assets/webp/images/slider/36.37.0809-Now-Hiring_Slider-Desktop.webp">
+        <a aria-label="Join the team, planet smoothie is hiring" href="#">
+          <img alt="Now Hiring. World’s Greatest Smoothie Makers! VISIT PLANETSMOOTHIE.COM to see if your local franchised Planet Smoothie Locations are hiring." loading="lazy" src="https://www.planetsmoothie.com/assets/webp/images/slider/36.37.0809-Now-Hiring_Slider-Desktop.webp">
         </a>
       </div>
       <div class="carousel-item">
-        <a href="#">
-          <img loading="lazy" src="https://www.planetsmoothie.com/assets/webp/images/slider/promotions/2024/36.37.1032-PLS-W2-Digital-Assets-Coconut-Whip_Web_Slider-Home_Desktop.webp">
+        <a aria-label="learn more, coconut whip plant-based" href="#">
+          <img alt="coconut whip plant-based. learn more" loading="lazy" src="https://www.planetsmoothie.com/assets/webp/images/slider/promotions/2024/36.37.1032-PLS-W2-Digital-Assets-Coconut-Whip_Web_Slider-Home_Desktop.webp">
         </a>
       </div>
     </div>
@@ -207,6 +216,28 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
+    <style>
+      button.pause:before { content: 'Play' }
+      button.play:before { content: 'Pause' }
+    </style>
+    <script>
+      $(function() {
+        /* Initialize Carousel */
+        var paused = false;
+        $('#myCarousel').carousel({
+          interval: 5000,
+          pause: false
+        });
+
+        /* Play trigger */
+        $('#btnPause').click(function() {
+          var state = (paused) ? 'cycle' : 'pause';
+          paused = (paused) ? false : true;
+          $('#myCarousel').carousel(state);
+          $(this).toggleClass('play pause');
+        });
+      });
+    </script>
   </div>
 
   <!-- End Carousel-->
@@ -221,21 +252,21 @@
     <div class="row">
       <div class="col-lg-4">
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-        <h2 class="fw-normal">Heading</h2>
+        <h2 class="fw-normal" id="heading-1">Heading</h2>
         <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
-        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        <p><a class="btn btn-secondary" id="link-1" href="#" aria-labelledby="link-1 heading-1">View details <span aria-hidden="true">&raquo;</span></a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-        <h2 class="fw-normal">Heading</h2>
+        <h2 class="fw-normal" id="heading-2">Heading</h2>
         <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        <p><a class="btn btn-secondary" id="link-2" href="#" aria-labelledby="link-2 heading-2">View details <span aria-hidden="true">&raquo;</span></a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-        <h2 class="fw-normal">Heading</h2>
+        <h2 class="fw-normal" id="heading-3">Heading</h2>
         <p>And lastly this, the third column of representative placeholder content.</p>
-        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        <p><a class="btn btn-secondary" id="link-3" href="#" aria-labelledby="link-3 heading-3">View details <span aria-hidden="true">&raquo;</span></a></p>
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
 
@@ -477,9 +508,9 @@
         <div class="card">
           <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 id="card-heading-1" class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a href="#" id="card-link-1" class="btn btn-primary" aria-labelledby="card-link-1 card-heading-1">Go somewhere</a>
           </div>
         </div>
       </div>
@@ -487,9 +518,9 @@
         <div class="card">
           <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 id="card-heading-1" class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a href="#" id="card-link-2" class="btn btn-primary" aria-labelledby="card-link-2 card-heading-2">Go somewhere</a>
           </div>
         </div>
       </div>
@@ -497,9 +528,9 @@
         <div class="card">
         <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+          <h5 id="card-heading-1" class="card-title">Card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="#" id="card-link-3" class="btn btn-primary" aria-labelledby="card-link-3 card-heading-3">Go somewhere</a>
         </div>
         </div>
       </div>

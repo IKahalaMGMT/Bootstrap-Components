@@ -31,8 +31,9 @@
       .tabs .nav-link:focus-visible { outline: 2px solid #fff; box-shadow: 0 0 0 4px rgba(0, 0, 0, .5); }
       .accordion-button:focus { outline: 2px solid #fff; box-shadow: 0 0 0 4px rgba(0, 0, 0, .5); }
       [data-bs-theme=light] .btn:focus-visible { box-shadow: 0 0 0 0.25rem #51565C; }
-      .video-wrapper { position: relative; }
-      #play-pause-btn { position: absolute; bottom: 6px; right: 0}
+      .video-wrapper { position: relative; max-height: 720px; }
+      .video-wrapper video { max-width: 100%; }
+      #play-pause-btn { position: absolute; bottom: 6px; right: 6px}
       [data-alternate="play"] .play-icon { display: none; }
       [data-alternate="pause"] .pause-icon { display: none; }
       :not(:focus, :hover) .visually-hidden-all:not(.visible),
@@ -240,7 +241,7 @@
 
 <main id="content">
 
-  <div aria-hidden="true" class="embed-responsive embed-responsive-16by9 video-wrapper">
+  <div class="embed-responsive embed-responsive-16by9 video-wrapper">
     <video class="object-fit-cover" id="video-player" width="1920" height="720" poster="https://www.planetsmoothie.com/assets/images/banners/homeHero.jpg" layout="responsive" role="button" muted autoplay loop playsinline>
       <source src="https://www.planetsmoothie.com/assets/video/plsvideo.mp4" type="video/mp4">
       Your browser does not support the video tag.

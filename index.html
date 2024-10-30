@@ -31,10 +31,16 @@
       .tabs .nav-link:focus-visible { outline: 2px solid #fff; box-shadow: 0 0 0 4px rgba(0, 0, 0, .5); }
       .accordion-button:focus { outline: 2px solid #fff; box-shadow: 0 0 0 4px rgba(0, 0, 0, .5); }
       [data-bs-theme=light] .btn:focus-visible { box-shadow: 0 0 0 0.25rem #51565C; }
+      .video-wrapper { position: relative; }
+      #play-pause-btn { position: absolute; bottom: 6px; right: 0}
+      [data-alternate="play"] .play-icon { display: none; }
+      [data-alternate="pause"] .pause-icon { display: none; }
+      :not(:focus, :hover) .visually-hidden-all:not(.visible),
+      .visually-hidden:not(.visible) { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
       @media (max-width:768px) {
-        video { display: none; }
+        .video-wrapper { display: none; }
       }
-      /* End sustom styles */
+      /* End custom styles */
 
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -145,6 +151,34 @@
       });
       
     </script>
+    <script>
+      // play/pause button for video script
+      
+      window.addEventListener("load",e=>{
+        let playPauseBtn = document.getElementById('play-pause-btn');
+        playPauseBtn.addEventListener('click', (e) => toggleState(e.currentTarget));
+        let video = document.getElementById('video-player');
+
+        function toggleState(button) {
+            let newButton = button.cloneNode(true);
+            let stateElement = button.querySelector('[data-text]');
+            let newStateElement = newButton.querySelector('[data-text]');
+            let currentState = stateElement.textContent;
+            newStateElement.textContent = button.dataset.alternate;
+            newButton.dataset.alternate = currentState;
+            button.parentElement.replaceChild(newButton, button);
+            newButton.focus();
+            video.pause();
+            if (currentState != 'pause') {
+              video.play();
+            } else {
+              video.pause();
+            }
+            newButton.addEventListener('click', (e) => toggleState(e.currentTarget));
+            return newButton;
+        }
+      })
+    </script>
     <link href="carousel.css" rel="stylesheet">
     <script async="" src="https://www.planetsmoothie.com/assets/js/popups/popup-website-js.js?ver=1725433225017"></script>
   </head>
@@ -206,11 +240,24 @@
 
 <main id="content">
 
-  <div aria-hidden="true" class="embed-responsive embed-responsive-16by9">
-    <video class="object-fit-cover" width="1920" height="720" poster="https://www.planetsmoothie.com/assets/images/banners/homeHero.jpg" layout="responsive" role="button" muted autoplay loop playsinline>
+  <div aria-hidden="true" class="embed-responsive embed-responsive-16by9 video-wrapper">
+    <video class="object-fit-cover" id="video-player" width="1920" height="720" poster="https://www.planetsmoothie.com/assets/images/banners/homeHero.jpg" layout="responsive" role="button" muted autoplay loop playsinline>
       <source src="https://www.planetsmoothie.com/assets/video/plsvideo.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
+    <div class="play-pause-btn-wrapper">
+      <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" width="50" height="50" style="width: 50px; height: 50px; display: none;">
+        <path id="play-icon" d="M 5,5 L 45,25 L 5,45 Z" fill="black" />
+        <path id="pause-icon" d="M 5,5 L 20,5 L 20,45 L 5,45 Z M 30,5 L 45,5 L 45,45 L 30,45 Z" fill="black" />
+      </svg>
+      <button id="play-pause-btn" data-alternate="play">
+          <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" width="50" height="50" style="width: 50px; height: 50px;">
+              <use class="play-icon" href="#play-icon"></use>
+              <use class="pause-icon" href="#pause-icon"></use>
+          </svg>
+          <span class="visually-hidden" data-text>pause</span>
+      </button>
+    </div>
   </div>
 
   <!-- Start Carousel -->

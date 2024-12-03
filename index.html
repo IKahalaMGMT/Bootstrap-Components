@@ -263,57 +263,61 @@
 
   <!-- Start Carousel -->
 
-  <div id="myDesktopCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button id="btnPause" type="button" class="btn btn-secondary play"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <a aria-label="learn more, alex's lemonade stand September donation drive" href="#">
-          <img alt="Buy a lunar lemonade and $1 will be donated to alex's lemondate stand foundation all through september. Alex's lemonade stand found for childhood cancer. Fighting Childhood cancer, one cup at a time. learn more" loading="lazy" src="https://www.planetsmoothie.com/assets/images/slider/36.37.1067-PS-ALSF-September-Digital-Assets_web-slider.jpg">
-        </a>
+  <div class="fluid-container">
+    <div id="myDesktopCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <a aria-label="learn more, alex's lemonade stand September donation drive" href="#">
+            <img alt="Buy a lunar lemonade and $1 will be donated to alex's lemondate stand foundation all through september. Alex's lemonade stand found for childhood cancer. Fighting Childhood cancer, one cup at a time. learn more" loading="lazy" src="https://www.planetsmoothie.com/assets/images/slider/36.37.1067-PS-ALSF-September-Digital-Assets_web-slider.jpg">
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a aria-label="Join the team, planet smoothie is hiring" href="#">
+            <img alt="Now Hiring. World’s Greatest Smoothie Makers! VISIT PLANETSMOOTHIE.COM to see if your local franchised Planet Smoothie Locations are hiring." loading="lazy" src="https://www.planetsmoothie.com/assets/webp/images/slider/36.37.0809-Now-Hiring_Slider-Desktop.webp">
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a aria-label="learn more, coconut whip plant-based" href="#">
+            <img alt="coconut whip plant-based. learn more" loading="lazy" src="https://www.planetsmoothie.com/assets/webp/images/slider/promotions/2024/36.37.1032-PLS-W2-Digital-Assets-Coconut-Whip_Web_Slider-Home_Desktop.webp">
+          </a>
+        </div>
       </div>
-      <div class="carousel-item">
-        <a aria-label="Join the team, planet smoothie is hiring" href="#">
-          <img alt="Now Hiring. World’s Greatest Smoothie Makers! VISIT PLANETSMOOTHIE.COM to see if your local franchised Planet Smoothie Locations are hiring." loading="lazy" src="https://www.planetsmoothie.com/assets/webp/images/slider/36.37.0809-Now-Hiring_Slider-Desktop.webp">
-        </a>
+      <button class="carousel-control-prev" type="button" data-bs-target="#myDesktopCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myDesktopCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+      <div class="carousel-status">
+        <button id="btnPause" type="button" class="btn btn-secondary play"></button>
       </div>
-      <div class="carousel-item">
-        <a aria-label="learn more, coconut whip plant-based" href="#">
-          <img alt="coconut whip plant-based. learn more" loading="lazy" src="https://www.planetsmoothie.com/assets/webp/images/slider/promotions/2024/36.37.1032-PLS-W2-Digital-Assets-Coconut-Whip_Web_Slider-Home_Desktop.webp">
-        </a>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#myDesktopCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myDesktopCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-    <style>
-      button.pause:before { content: 'Play' }
-      button.play:before { content: 'Pause' }
-    </style>
-    <script>
-      $(function() {
-        /* Initialize Carousel */
-        var paused = false;
-        $('#myDesktopCarousel').carousel({
-          interval: 5000,
-          pause: false
+      <style>
+        .carousel-status { padding: 16px 0; text-align: center; }
+        .carousel-status button.pause:before { content: 'Play' }
+        .carousel-status button.play:before { content: 'Pause' }
+      </style>
+      <script>
+        $(function() {
+          /* Initialize Carousel */
+          var paused = false;
+          $('#myDesktopCarousel').carousel({
+            interval: 5000,
+            pause: false
+          });
+  
+          /* Play trigger */
+          $('#btnPause').click(function() {
+            var state = (paused) ? 'cycle' : 'pause';
+            paused = (paused) ? false : true;
+            $('#myDesktopCarousel').carousel(state);
+            $(this).toggleClass('play pause');
+          });
         });
-
-        /* Play trigger */
-        $('#btnPause').click(function() {
-          var state = (paused) ? 'cycle' : 'pause';
-          paused = (paused) ? false : true;
-          $('#myDesktopCarousel').carousel(state);
-          $(this).toggleClass('play pause');
-        });
-      });
-    </script>
+      </script>
+    </div>
+    
   </div>
 
   <!-- End Carousel-->

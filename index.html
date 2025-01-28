@@ -7,7 +7,6 @@
     <meta name="author" content="Kahala MGMT">
     <meta name="generator" content="Hugo 0.122.0">
     <title>Bootstrap Component Library</title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -120,66 +119,8 @@
         display: block !important;
       }
     </style>
-    <script>
-      // accessibility tab trap on mobile menu
-      window.addEventListener("load",e=>{
-        var mobileNavToggle = document.querySelector(".navbar-toggler");
-        mobileNavToggle.addEventListener("click", function() { 
-          var nav = document.querySelector(".navbar");
-          const focusableElements = 'button, [href], a, [tabindex]:not([tabindex="-1"])';
-          const firstFocusableElement = nav.querySelectorAll(focusableElements)[0]; 
-          const secondFocusableElement = nav.querySelectorAll(focusableElements)[1];
-          const focusableContent = nav.querySelectorAll(focusableElements);
-          const lastFocusableElement = focusableContent[focusableContent.length - 1]; 
-
-          document.addEventListener('keydown', function(e) {
-            let isTabPressed = e.key === 'Tab' || e.code === 'Tab';
-            let isEscPressed = e.key === 'Escape' || e.code === 'Escape';
-            if (e.shiftKey) { 
-              if (document.activeElement === firstFocusableElement) {
-                e.preventDefault();
-                lastFocusableElement.focus(); 
-                  
-              }
-            } else { 
-              if (document.activeElement === lastFocusableElement) { 
-                e.preventDefault();
-                firstFocusableElement.focus(); 
-              }
-            }
-          });
-        });
-      });
-      
-    </script>
-    <script>
-      // play/pause button for video script
-      
-      window.addEventListener("load",e=>{
-        let playPauseBtn = document.getElementById('play-pause-btn');
-        playPauseBtn.addEventListener('click', (e) => toggleState(e.currentTarget));
-        let video = document.getElementById('video-player');
-
-        function toggleState(button) {
-            let newButton = button.cloneNode(true);
-            let stateElement = button.querySelector('[data-text]');
-            let newStateElement = newButton.querySelector('[data-text]');
-            let currentState = stateElement.textContent;
-            newStateElement.textContent = button.dataset.alternate;
-            newButton.dataset.alternate = currentState;
-            button.parentElement.replaceChild(newButton, button);
-            newButton.focus();
-            video.pause();
-            if (currentState != 'pause') {
-              video.play();
-            } else {
-              video.pause();
-            }
-            newButton.addEventListener('click', (e) => toggleState(e.currentTarget));
-            return newButton;
-        }
-      })
-    </script>
+    <script src="./assets/js/play-pause-video.js"></script>
+    <script src="./assets/js/accessibility-tab-trap.js"></script>
     <link href="carousel.css" rel="stylesheet">
     <script async="" src="https://www.planetsmoothie.com/assets/js/popups/popup-website-js.js?ver=1725433225017"></script>
   </head>
@@ -298,24 +239,6 @@
         .carousel-status button.pause:before { content: 'Play' }
         .carousel-status button.play:before { content: 'Pause' }
       </style>
-      <script>
-        $(function() {
-          /* Initialize Carousel */
-          var paused = false;
-          $('#myDesktopCarousel').carousel({
-            interval: 5000,
-            pause: false
-          });
-  
-          /* Play trigger */
-          $('#btnPause').click(function() {
-            var state = (paused) ? 'cycle' : 'pause';
-            paused = (paused) ? false : true;
-            $('#myDesktopCarousel').carousel(state);
-            $(this).toggleClass('play pause');
-          });
-        });
-      </script>
     </div>
     
   </div>

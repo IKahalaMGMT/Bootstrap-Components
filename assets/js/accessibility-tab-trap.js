@@ -1,7 +1,7 @@
 // accessibility tab trap on mobile menu
 window.addEventListener("load",e=>{
     var mobileNavToggle = document.querySelector(".navbar-toggler");
-    if (mobileNavToggle) {
+    if (mobileNavToggle.length) {
         mobileNavToggle.addEventListener("click", function() { 
             var nav = document.querySelector(".navbar");
             const focusableElements = 'button, [href], a, [tabindex]:not([tabindex="-1"])';

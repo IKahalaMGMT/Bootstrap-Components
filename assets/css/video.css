@@ -1,0 +1,5 @@
+.video-wrapper { position: relative; max-height: 720px; }
+.video-wrapper video { max-width: 100%; }
+#play-pause-btn { position: absolute; bottom: 6px; right: 6px}
+[data-alternate="play"] .play-icon { display: none; }
+[data-alternate="pause"] .pause-icon { display: none; }

@@ -23,20 +23,12 @@
       .dwmodal-wrapper .btn:hover { background-color: #CC0C7A; }
       .dwmodal-wrapper .btn:focus { outline: 2px solid #000; }
       .dwmodal-close-button:focus { border: 2px solid #fff; outline: 2px solid #000; }
-      .carousel .carousel-control-next-icon, .carousel .carousel-control-prev-icon { background-size: 75% 75%; }
-      .carousel .carousel-control-next .carousel-control-next-icon, .carousel .carousel-control-prev .carousel-control-prev-icon { outline: 2px solid #fff; }
       [data-bs-theme=dark] .carousel .carousel-control-next-icon, [data-bs-theme=dark] .carousel .carousel-control-prev-icon, [data-bs-theme=dark].carousel .carousel-control-next-icon, [data-bs-theme=dark].carousel .carousel-control-prev-icon { background-color: #000; border-radius: 999px; padding: 20px; }
       .btn.btn-secondary { background-color: #4891FE; border-color: #4891FE;}
       .tabs .nav-link:focus-visible { outline: 2px solid #fff; box-shadow: 0 0 0 4px rgba(0, 0, 0, .5); }
       .accordion-button:focus { outline: 2px solid #fff; box-shadow: 0 0 0 4px rgba(0, 0, 0, .5); }
       [data-bs-theme=light] .btn:focus-visible { box-shadow: 0 0 0 0.25rem #51565C; }
-      .video-wrapper { position: relative; max-height: 720px; }
-      .video-wrapper video { max-width: 100%; }
-      #play-pause-btn { position: absolute; bottom: 6px; right: 6px}
-      [data-alternate="play"] .play-icon { display: none; }
-      [data-alternate="pause"] .pause-icon { display: none; }
-      :not(:focus, :hover) .visually-hidden-all:not(.visible),
-      .visually-hidden:not(.visible) { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+      
       @media (max-width:768px) {
         .video-wrapper { display: none; }
       }
@@ -118,9 +110,23 @@
       .bd-mode-toggle .dropdown-menu .active .bi {
         display: block !important;
       }
+
+      :not(:focus, :hover) .visually-hidden-all:not(.visible),
+      .visually-hidden:not(.visible) { 
+        position: absolute; 
+        width: 1px; 
+        height: 1px; 
+        padding: 0; 
+        margin: -1px; 
+        overflow: hidden; 
+        clip: rect(0, 0, 0, 0); 
+        white-space: nowrap; 
+        border-width: 0; 
+      }
     </style>
     <script src="./assets/js/play-pause-video.js"></script>
     <script src="./assets/js/accessibility-tab-trap.js"></script>
+    <link href="./assets/css/video.css" rel="stylesheet">
     <link href="carousel.css" rel="stylesheet">
     <script async="" src="https://www.planetsmoothie.com/assets/js/popups/popup-website-js.js?ver=1725433225017"></script>
   </head>

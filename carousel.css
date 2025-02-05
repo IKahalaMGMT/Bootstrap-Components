@@ -1,3 +1,8 @@
+/* ADA changes*/
+.carousel .carousel-control-next-icon, .carousel .carousel-control-prev-icon { background-size: 75% 75%; }
+.carousel .carousel-control-next .carousel-control-next-icon, .carousel .carousel-control-prev .carousel-control-prev-icon { outline: 2px solid #fff; }
+/* End ADA changes*/
+
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
@@ -7,7 +12,6 @@ body {
   padding-bottom: 3rem;
   color: rgb(var(--bs-tertiary-color-rgb));
 }
-
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
